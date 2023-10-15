@@ -1,5 +1,4 @@
 package com.yazoo.corp.to-do;
-imports
 
 public class Todo {
   private Integer id;
