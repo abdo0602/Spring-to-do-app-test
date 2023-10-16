@@ -15,5 +15,7 @@ public class TodoController{
     return todoService.getTodos();
   }
 
+  @GetMapping(path="[id}")
+  public Todo getTodo(@PathVariable Long id)
   
 }
