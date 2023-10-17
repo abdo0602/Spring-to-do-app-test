@@ -1,6 +1,18 @@
 package com.yazoo.corp.todo;
 
+@Entity
+@Table
 public class Todo {
+  @Id
+  @SequenceGenerator(
+    name= "todo_sequence",
+    sequenceName="todo_sequence",
+    allocationSize=1
+  )
+  @GeneratedValue(
+    strategy=GenerationType.SEQUENCE,
+    generator= "todo_sequence"
+  )
   private Integer id;
   private String title;
   private String content;
