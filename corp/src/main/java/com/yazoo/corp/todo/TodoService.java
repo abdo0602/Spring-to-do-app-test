@@ -40,6 +40,9 @@ public class TodoService{
           todo.setContent(content);
         }
       }
-      
    }
+
+  public void deleteTodo(Long id){
+    todoRepository.deleteById(id);
+  }
 }
