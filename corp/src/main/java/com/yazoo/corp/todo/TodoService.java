@@ -3,8 +3,14 @@ imports
 
 @Service
 public class TodoService{
+
+  private final TodoRepository todoRepository;
+  @Autowired
+  public TodoService(TodoRepository todoRepository){
+    this.todoRepository = todoRepository;
+  }
   
   public List<Todo> getTodos(){
-    return List.of(new Todo("title","content"));
+    return todoRepository.findAll();
   }
 }
