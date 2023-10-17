@@ -15,7 +15,14 @@ public class TodoController{
     return todoService.getTodos();
   }
 
-  @GetMapping(path="[id}")
-  public Todo getTodo(@PathVariable Long id)
+  @GetMapping(path="{id}")
+  public Todo getTodo(@PathVariable Long id){
+    return todoService.getTodo();
+  }
+
+  @PostMapping
+  public void addTodo(@RequestBody Todo todo){
+    todoService.addTodo(todo);
+  }
   
 }
