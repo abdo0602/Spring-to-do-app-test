@@ -16,18 +16,23 @@ public class Todo {
   private Integer id;
   private String title;
   private String content;
-
-  public void Todo(){}
+  private boolean isComplete;
+  
+  public void Todo(){
+    this.isComplete = false;
+  }
 
   public void Todo(Integer id, String title, String content){
     this.id = id;
       this.title = title;
       this.content = content;
+      this.isComplete = false;
   }
 
   public void todo(String title, String content){
       this.title = title;
       this.content = content;
+      this.isComplete = false;
   }
 
   public void setId(Integer id){
@@ -53,4 +58,13 @@ public class Todo {
   public String getContent(){
     return content;
   }
+
+  public void setIsComplete(boolean isComplete){
+    this.isComplete = isComplete;
+  }
+
+  public boolean getIsComplete(){
+    return isComplete;
+  }
+  
 }
