@@ -14,6 +14,10 @@ public class TodoService{
     return todoRepository.findAll();
   }
 
+  public Todo getTodo(Long id){
+    return todoRepository.findById(id);
+  }
+
   public void addTodo(Todo todo){
     if(todo.title == null or todo.content == null){
       throw new IllegalStateException("title and content cannot be empty");
