@@ -2,6 +2,7 @@ package com.yazoo.corp.todo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
+@RequestMapping
 public class TodoController{
 
   private final TodoService todoService;
@@ -24,5 +25,18 @@ public class TodoController{
   public void addTodo(@RequestBody Todo todo){
     todoService.addTodo(todo);
   }
-  
+
+  @PutMapping(path = "{id}")
+  public void updateTodo(@PathVariable("id") Long id,
+                        @RequestParam(required = false) String title,
+                         @RequestParam(required = false) String content,
+                         @RequestParam(required = false) Integer isComplete
+                        ){
+    todoService.updateTodo(id,title,content,isComplete);
+                        }
+
+  @DeleteMapping(path = "{id}")
+  public void deleteTodo(@PathVariable("id") Long id){
+    todoService.deleteTodo(id);
+  }
 }
