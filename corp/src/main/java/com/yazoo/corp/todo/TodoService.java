@@ -17,7 +17,8 @@ public class TodoService{
   }
 
   public Todo getTodo(Long id){
-    return todoRepository.findById(id);
+    Todo todo = todoRepository.findById(id).orElseThrow(()-> IllegalStateException("Todo with Id: "+id+" was not found!"));
+    return todo;
   }
 
   public void addTodo(Todo todo){
@@ -26,4 +27,19 @@ public class TodoService{
     }
     todoRepository.save(todo)
   }
+
+  @Transactional
+  public void updateTodo(Long id,String title,String content,Integer isComplete){
+      Todo todo = todoRepository.findById(id).orElseThrow(()-> IllegalStateException("Todo with Id: "+id+" was not found!"));
+      if(isComplete == 1){}
+      else{
+        if(title != null && title.length() > 0 && !Objects.equals(todo.title, title)){
+          todo.setTitle(title);
+        }
+        if(content != null && content.length() > 0 && !Objects.equals(todo.content, content)){
+          todo.setContent(content);
+        }
+      }
+      
+   }
 }
