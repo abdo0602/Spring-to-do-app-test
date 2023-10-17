@@ -13,4 +13,11 @@ public class TodoService{
   public List<Todo> getTodos(){
     return todoRepository.findAll();
   }
+
+  public void addTodo(Todo todo){
+    if(todo.title == null or todo.content == null){
+      throw new IllegalStateException("title and content cannot be empty");
+    }
+    todoRepository.save(todo)
+  }
 }
