@@ -1,7 +1,7 @@
 # Spring-to-do-app-test
 
 ## Database
-this project is using a MySQL DBMS you can change it but make sure to modify the application.properties file, don't forget aswell to put your own DBMS user and password before running the app **XD**
+this project is using a MySQL DBMS you can change it but make sure to modify the application.properties file, don't forget aswell to put your own DBMS user and password before running the app _**XD**_
 
 ## App's endpoints
 ### Visit this endpoint to get all todos in the list
